@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet"  href="estilo.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1 id="text"></h1>         
+        <div>
+                <div class="bt1">    
+                    <button class="botoes" onclick="escreverNaTela(7)">7</button>
+                    <button class="botoes" onclick="escreverNaTela(4)">4</button>
+                    <button class="botoes" onclick="escreverNaTela(1)">1</button>
+                    <button class="botoes" onclick="escreverNaTela(0)">0</button>
+                </div>
+                <div class="bt2">    
+                        <button class="botoes" onclick="escreverNaTela(8)">8</button>
+                        <button class="botoes" onclick="escreverNaTela(5)">5</button>
+                        <button class="botoes" onclick="escreverNaTela(2)">2</button>
+                        <button class="botoes" onclick="escreverNaTela(',')">,</button>                
+                </div>
+                <div class="bt3">    
+                        <button class="botoes" onclick="escreverNaTela(9)">9</button>
+                        <button class="botoes" onclick="escreverNaTela(6)">6</button>
+                        <button class="botoes" onclick="escreverNaTela(3)">3</button>
+                        <button class="botoes" onclick="result()">=</button>                
+                </div>
+                <div class="btEspecial">
+                        <button class="especial" onclick="apagar()">Del</button>              
+                        <button class="especial" onclick="operacao('/')">÷</button>
+                        <button class="especial" onclick="operacao('*')">×</button> 
+                        <button class="especial" onclick="operacao('-')">-</button>
+                        <button class="especial" onclick="operacao('+')">+</button> 
+                <div class="divPrincipal">
+        </div>
+    </body>
+</html>
