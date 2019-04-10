@@ -4,7 +4,7 @@ var op = null;
 
 window.onload = function() {
     document.addEventListener('keyup', function(caractere){
-        
+        console.log(caractere.keyCode);
         if (caractere.keyCode == 97 || caractere.keyCode == 49){            
             escreverNaTela("1");
         } else if (caractere.keyCode == 98 || caractere.keyCode == 50){            
@@ -68,20 +68,26 @@ function escreverNaTela(char){
                 return str1.slice(0, pos) + str2 + str1.slice(pos);
             }
             
-
+            console.log(insert(txt));
             if (txt.length >= 3){
-                console.log("Resto da divisao do tamanho por 3: "+txt.length % 3)
+                
+                var pos = 0;
+                console.log("Resto da divisao do tamanho por 3: "+txt.length % 3+" | Pos: "+pos)
                 if (txt.length % 3 == 0){
+                    
                     for (x = 1; x < txt.length+1; x++){
-                        console.log("X: "+x);
+                        
                         if (x%3==0){
-                            txt = insert(txt, ".",-x+1);
-                            texto.textContent = txt;   
+                            pos = x-1;
+                            console.log(pos)
                         }
+                        
                     }
-                    txt = insert(txt, ".",-x+1);
-                    texto.textContent = txt;  
-                }       
+                }
+                
+                /// ponto fixo
+                txt = insert(txt, ".",-pos);
+                texto.textContent = txt;    
             }
             texto.textContent += (char);
             num += String(char);
