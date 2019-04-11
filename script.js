@@ -1,6 +1,8 @@
 var num = 0;
 var num1 = 0;
 var op = null;
+var pos = [0];
+var cont = 0;
 
 window.onload = function() {
     document.addEventListener('keyup', function(caractere){
@@ -25,7 +27,7 @@ window.onload = function() {
             escreverNaTela("9");
         } else if (caractere.keyCode == 96 || caractere.keyCode == 48){            
             escreverNaTela("0");
-        } else if (caractere.keyCode == 188 || caractere.keyCode == 44 || caractere.keyCode == 110 || caractere.keyCode == 46 || caractere.keyCode == 194){            
+        } else if (caractere.keyCode == 188 || caractere.keyCode == 44 || caractere.keyCode == 110 || caractere.keyCode == 194){            
             escreverNaTela(",");
         } else if (caractere.keyCode == 187 || caractere.keyCode == 61 || caractere.keyCode == 13){            
             result();
@@ -69,25 +71,36 @@ function escreverNaTela(char){
             }
             
             console.log(insert(txt));
+            
             if (txt.length >= 3){
                 
-                var pos = 0;
+                
                 console.log("Resto da divisao do tamanho por 3: "+txt.length % 3+" | Pos: "+pos)
                 if (txt.length % 3 == 0){
                     
-                    for (x = 1; x < txt.length+1; x++){
-                        
+                    for (x = 1; x < txt.length+1; x++){                        
                         if (x%3==0){
-                            pos = x-1;
-                            console.log(pos)
+                            console.log(cont, pos[cont], pos.includes(pos[cont]));
+
+                            if (pos.includes(pos[cont]) == true){
+                                console.log("Entrou na condição de adicionar posição")
+                                pos[cont] = x-1;                            
+                                cont += 1;
+                            }
+                            console.log(pos, cont);
+                            
                         }
                         
                     }
                 }
                 
                 /// ponto fixo
-                txt = insert(txt, ".",-pos);
-                texto.textContent = txt;    
+                for (x = 0; x < pos.length; x++){
+                    console.log("pos: "+pos)
+                    txt = insert(txt, ".",-pos[x]);
+                    texto.textContent = txt;    
+                }
+                
             }
             texto.textContent += (char);
             num += String(char);
